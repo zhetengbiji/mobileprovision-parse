@@ -1,0 +1,17 @@
+{
+  "name": "mobileprovision-parse",
+  "version": "0.0.1",
+  "description": "mobileprovision-parse",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "keywords": [
+    "mobileprovision"
+  ],
+  "author": "guoshengqiang",
+  "license": "ISC",
+  "dependencies": {
+    "htmlencode": "0.0.4"
+  }
+}
