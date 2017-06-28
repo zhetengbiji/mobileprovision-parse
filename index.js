@@ -1,4 +1,5 @@
-var htmlDecode = require('htmlEncode').htmlDecode;
+var htmlDecode = require('htmlEncode').htmlDecode
+var exec = require('child_process').exec
 
 function getVal(xml, name) {
     var m = new RegExp(`<key>${name}<\\/key>\\n\\s*<string>(.+)<\\/string>`)
@@ -38,4 +39,17 @@ function getInfo(xml) {
     return info
 }
 
-module.exports = getInfo
+function main(profilePath, cb) {
+    var cmd = `security cms -D -i ${profilePath}`
+    exec(cmd, (err, stdout, stderr) => {
+        if(!err) {
+            if(typeof cb === 'function') {
+                cb(getInfo(stdout))
+            }
+        } else {
+            throw new Error(stderr)
+        }
+    })
+}
+
+module.exports = main

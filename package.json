@@ -1,6 +1,6 @@
 {
   "name": "mobileprovision-parse",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "mobileprovision-parse",
   "main": "index.js",
   "scripts": {

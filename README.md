@@ -4,8 +4,9 @@
 npm i mobileprovision-parse --save
 ```
 ### use
-```
+```js
 var parse = require('mobileprovision-parse')
-var info=parse(mobileprovisionStr)
-console.log(info)
+parse('xxx.mobileprovision', info => {
+	console.log(info)
+})
 ```
