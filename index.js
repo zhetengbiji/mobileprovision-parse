@@ -1,5 +1,20 @@
 var htmlDecode = require('htmlEncode').htmlDecode
-var exec = require('child_process').exec
+var child_process = require('child_process')
+
+function exec(cmd, opt) {
+    opt = Object.assign({
+        cwd: __dirname
+    }, opt)
+    return new Promise((resolve, reject) => {
+        child_process.exec(cmd, opt, (err, stdout, stderr) => {
+            if(err) {
+                reject(stderr)
+            } else {
+                resolve(stdout)
+            }
+        })
+    })
+}
 
 function getVal(xml, name) {
     var m = new RegExp(`<key>${name}<\\/key>\\n\\s*<string>(.+)<\\/string>`)
@@ -42,15 +57,14 @@ function getInfo(xml) {
 
 function main(profilePath, cb) {
     var cmd = `security cms -D -i ${profilePath}`
-    exec(cmd, (err, stdout, stderr) => {
-        if(!err) {
+    return exec(cmd)
+        .then(stdout => {
+            var info = getInfo(stdout)
             if(typeof cb === 'function') {
-                cb(getInfo(stdout))
+                cb(info)
             }
-        } else {
-            throw new Error(stderr)
-        }
-    })
+            return Promise.resolve(info)
+        })
 }
 
 module.exports = main
