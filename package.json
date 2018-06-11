@@ -1,16 +1,28 @@
 {
   "name": "mobileprovision-parse",
-  "version": "0.1.0",
-  "description": "mobileprovision-parse",
+  "version": "0.2.0",
+  "description": "Use JavaScript to parse the Provisioning Profiles used by xcode.",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhetengbiji/mobileprovision-parse.git"
+  },
   "keywords": [
-    "mobileprovision"
+    "mobileprovision",
+    "Provisioning",
+    "xcode",
+    "ios",
+    "parse"
   ],
-  "author": "guoshengqiang",
+  "author": "Shengqiang Guo",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhetengbiji/mobileprovision-parse/issues"
+  },
+  "homepage": "https://github.com/zhetengbiji/mobileprovision-parse#readme",
   "dependencies": {
     "htmlencode": "0.0.4"
   }
