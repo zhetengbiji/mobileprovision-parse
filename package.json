@@ -1,6 +1,6 @@
 {
   "name": "mobileprovision-parse",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Use JavaScript to parse the Provisioning Profiles used by xcode.",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/zhetengbiji/mobileprovision-parse#readme",
   "dependencies": {
-    "htmlencode": "0.0.4"
+    "htmlencode": "0.0.4",
+    "shell-argument-escape": "^0.1.2"
   }
 }
